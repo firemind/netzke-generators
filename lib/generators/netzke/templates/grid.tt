@@ -1,5 +1,6 @@
 class <%= model.capitalize %>Grid < Netzke::Basepack::Grid
   def configure(c)
+    c.model = "<%= name.capitalize %>"
     c.columns = [<% model.capitalize.constantize.column_names.each do |col| %>
      :<%= col %>, <% end %>
     ]
