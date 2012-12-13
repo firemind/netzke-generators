@@ -4,7 +4,7 @@ require "generator_spec/test_case"
 describe Netzke::FormGenerator do
   include GeneratorSpec::TestCase
   destination File.expand_path("../../tmp", __FILE__)
-  arguments %w(form product)
+  arguments %w(product)
 
   before(:all) do
     prepare_destination
