@@ -1,4 +1,4 @@
-class <%= model.capitalize %>Manager < Netzke::Base
+class <%= file_name.capitalize %>Manager < Netzke::Base
   include Netzke::Basepack::ItemPersistence
 
   js_configure do |c|
@@ -9,7 +9,7 @@ class <%= model.capitalize %>Manager < Netzke::Base
   end
 
   def configure(c)
-    c.items = [:<%= model.underscore %>_grid, :<%= submodel.underscore %>_grid]
+    c.items = [:<%= file_name.underscore %>_grid, :<%= submodel.underscore %>_grid]
     super
   end
 
@@ -18,7 +18,7 @@ class <%= model.capitalize %>Manager < Netzke::Base
   end
 
   component :container do |c|
-    c.klass ||= <%= model.capitalize %>Grid
+    c.klass ||= <%= file_name.capitalize %>Grid
     c.title ||= "Container"
     c.region ||= :west
     c.width ||= 300
@@ -26,7 +26,7 @@ class <%= model.capitalize %>Manager < Netzke::Base
   end
 
   component :collection do |c|
-    c.klass ||= <%= model.capitalize %>Grid
+    c.klass ||= <%= submodel.capitalize %>Grid
 
     c.region ||= :center
     c.load_inline_data = false

@@ -1,10 +1,9 @@
-class Product
+class Positions
 
   def self.column_names
     [
       'name',
-      'price',
-      'vendor_id'
+      'amount'
     ]
   end
   

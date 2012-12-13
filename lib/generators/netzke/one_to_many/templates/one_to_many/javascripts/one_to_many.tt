@@ -1,0 +1,11 @@
+{
+  initComponent: function() {
+    this.callParent();
+
+    var view = this.getComponent('container').getView();
+    view.on('itemclick', function(view, record){
+      this.selectContainerRecord({id: record.get('id')});
+      this.getComponent('collection').getStore().load();
+    }, this);
+  }
+}
