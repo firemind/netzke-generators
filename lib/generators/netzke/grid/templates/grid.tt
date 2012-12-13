@@ -1,0 +1,13 @@
+class <%= model.capitalize %>Grid < Netzke::Basepack::Grid
+  def configure(c)
+    c.model = "<%= model.capitalize %>"
+    c.columns = [<% model.capitalize.constantize.column_names.each do |col| %>
+     :<%= col %>, <% end %>
+    ]
+  end
+<% if options.mixin? %>
+  js_configure do |c|
+    c.mixin
+  end
+<% end %>
+end
